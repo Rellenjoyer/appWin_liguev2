@@ -9,6 +9,7 @@ using System.Drawing;
 
 namespace appWin_liguev2
 {
+    //classe pour facilité la gestion de la base de données
     internal class Adonet
     {
         //attributs
@@ -18,8 +19,7 @@ namespace appWin_liguev2
         private string connectionString;
         private DataSet dsLigue;
         private DataTable dtEquipe;
-        private DataTable dtAttaquant;
-        private DataTable dtGardien;
+
 
 
         public SqlConnection Connection { get => connection; set => connection = value; }
@@ -28,21 +28,19 @@ namespace appWin_liguev2
         public string ConnactionString { get => connectionString; set => connectionString = value; }
         public DataSet DsLigue { get => dsLigue; set => dsLigue = value; }
         public DataTable DtEquipe { get => dtEquipe; set => dtEquipe = value; }
-        public DataTable DtAttaquant { get => dtAttaquant; set => dtAttaquant = value; }
-        public DataTable DtGardien { get => dtGardien; set => dtGardien = value; }
+
 
 
         public Adonet()
         {
+            //connection string varie selon le serveur
             connectionString = "Data Source=LENEVO-LEGION-Y; Initial Catalog=Ligue; User ID=simon;Password=sql";
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             adapter = new SqlDataAdapter();
             dsLigue = new DataSet();
             dtEquipe = new DataTable();
-            dtGardien = new DataTable();
-        }
-        
 
+        }
     }
 }

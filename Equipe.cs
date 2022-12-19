@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    //classe pour les équipes
     public class Equipe
     {
-        //attribut
+        //attributs
         private string equipeNom;
         private int nbVictoire;
         private int nbDefaite;
@@ -18,10 +19,9 @@ namespace appWin_liguev2
         private int nbButContre;
         private int nbButDiff;
         static int nbJoueurs = 6;
-        //propriété
 
 
-
+        //propriétés
         public string EquipeNom
         {
             get { return this.equipeNom; }
@@ -78,45 +78,68 @@ namespace appWin_liguev2
 
         }
 
-        public int AjouterVictoire()
+        /// <summary>
+        /// Ajoute une victoire
+        /// </summary>
+        public void AjouterVictoire()
         {
             this.NbVictoire+= 1;
-            return this.NbVictoire;
+            
         }
 
-        public int AjouterDefaite()
+        /// <summary>
+        /// Ajoute une défaite
+        /// </summary>
+        public void AjouterDefaite()
         {
             this.NbDefaite += 1;
-            return this.NbDefaite;
+            
         }
 
-        public int AjouterNulle()
+        /// <summary>
+        /// Ajoute une nulle
+        /// </summary>
+        public void AjouterNulle()
         {
             this.NbNulle += 1;
-            return this.NbNulle;
+           
         }
-        public int CalculerPoint()
+
+        /// <summary>
+        /// Calcul les points à partir des résultats
+        /// </summary>
+        public void CalculerPoint()
         {
             this.nbPoint = this.NbVictoire * 2 + this.nbNulle;
-            return this.NbPoint;
+            
         }
 
-        public int AjouterButsPour(int p_nbBut) 
+        /// <summary>
+        /// Ajoute un but pour
+        /// </summary>
+        /// <param name="p_nbBut"></param>
+        public void AjouterButsPour(int p_nbBut) 
         {
             this.nbButPour+= p_nbBut;
-            return this.NbButPour;
+            
         }
 
-        public int AjouterButsContre(int p_nbButContre)
+        /// <summary>
+        /// Ajoute un but contre
+        /// </summary>
+        /// <param name="p_nbButContre"></param>
+        public void AjouterButsContre(int p_nbButContre)
         {
             this.nbButContre += p_nbButContre;
-            return this.nbButContre;
         }
 
-        public int CalculerButDiff()
+        /// <summary>
+        /// Calcul le différentiel de buts
+        /// </summary>
+        public void CalculerButDiff()
         {
             this.NbButDiff = this.nbButPour - this.nbButContre;
-            return this.NbButDiff;
+            
         }
 
     }

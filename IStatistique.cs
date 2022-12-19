@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    //interface pour les joueurs (Attaquant et Gardien)
     internal interface IStatistique
     {
+        /// <summary>
+        /// Ajoute un but
+        /// </summary>
+        /// <returns></returns>
         int AjouterBut();
 
-        float CalculerStats();
+        /// <summary>
+        /// Calcul la moyenne de buts
+        /// </summary>
+        /// <returns></returns>
+        double CalculerStats();
     }
 }

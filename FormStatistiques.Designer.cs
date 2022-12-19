@@ -32,7 +32,14 @@
             this.comboBoxFiltre = new System.Windows.Forms.ComboBox();
             this.buttonRecherche = new System.Windows.Forms.Button();
             this.labelRecherche = new System.Windows.Forms.Label();
+            this.numericUpDownMin = new System.Windows.Forms.NumericUpDown();
+            this.labelMin = new System.Windows.Forms.Label();
+            this.labelMax = new System.Windows.Forms.Label();
+            this.numericUpDownMax = new System.Windows.Forms.NumericUpDown();
+            this.buttonReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -45,6 +52,7 @@
             // 
             // comboBoxFiltre
             // 
+            this.comboBoxFiltre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFiltre.FormattingEnabled = true;
             this.comboBoxFiltre.Items.AddRange(new object[] {
             "Équipes",
@@ -74,11 +82,58 @@
             this.labelRecherche.TabIndex = 5;
             this.labelRecherche.Text = "Recherche";
             // 
+            // numericUpDownMin
+            // 
+            this.numericUpDownMin.Location = new System.Drawing.Point(237, 69);
+            this.numericUpDownMin.Name = "numericUpDownMin";
+            this.numericUpDownMin.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMin.TabIndex = 7;
+            // 
+            // labelMin
+            // 
+            this.labelMin.AutoSize = true;
+            this.labelMin.Location = new System.Drawing.Point(237, 38);
+            this.labelMin.Name = "labelMin";
+            this.labelMin.Size = new System.Drawing.Size(81, 13);
+            this.labelMin.TabIndex = 8;
+            this.labelMin.Text = "Minimum de but";
+            // 
+            // labelMax
+            // 
+            this.labelMax.AutoSize = true;
+            this.labelMax.Location = new System.Drawing.Point(389, 38);
+            this.labelMax.Name = "labelMax";
+            this.labelMax.Size = new System.Drawing.Size(84, 13);
+            this.labelMax.TabIndex = 10;
+            this.labelMax.Text = "Maximum de but";
+            // 
+            // numericUpDownMax
+            // 
+            this.numericUpDownMax.Location = new System.Drawing.Point(389, 69);
+            this.numericUpDownMax.Name = "numericUpDownMax";
+            this.numericUpDownMax.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMax.TabIndex = 9;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(618, 112);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(148, 23);
+            this.buttonReset.TabIndex = 11;
+            this.buttonReset.Text = "Nouvelle saison";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // FormStatistiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.labelMax);
+            this.Controls.Add(this.numericUpDownMax);
+            this.Controls.Add(this.labelMin);
+            this.Controls.Add(this.numericUpDownMin);
             this.Controls.Add(this.labelRecherche);
             this.Controls.Add(this.buttonRecherche);
             this.Controls.Add(this.comboBoxFiltre);
@@ -87,6 +142,8 @@
             this.Text = "Statistiques";
             this.Load += new System.EventHandler(this.FormStatistiques_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,5 +155,10 @@
         private System.Windows.Forms.ComboBox comboBoxFiltre;
         private System.Windows.Forms.Button buttonRecherche;
         private System.Windows.Forms.Label labelRecherche;
+        private System.Windows.Forms.NumericUpDown numericUpDownMin;
+        private System.Windows.Forms.Label labelMin;
+        private System.Windows.Forms.Label labelMax;
+        private System.Windows.Forms.NumericUpDown numericUpDownMax;
+        private System.Windows.Forms.Button buttonReset;
     }
 }

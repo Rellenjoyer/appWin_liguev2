@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    //Classe parent pour les attaquants et les gardiens
     public abstract class Joueur
     {
 
-        //attribut
+        //attributs
         private string joueurID;
         private string equipeNom;
         private string nom;
@@ -17,7 +18,7 @@ namespace appWin_liguev2
         private string numChandail;
 
 
-        //propriété
+        //propriétés
         public string JoueurID
         {
             get { return this.joueurID; }

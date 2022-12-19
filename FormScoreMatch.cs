@@ -14,6 +14,7 @@ namespace appWin_liguev2
 {
     public partial class FormScoreMatch : Form
     {
+        //initialise des objets globaux
         Adonet ado;
         public string nomEquipe1 = "";
         public string nomEquipe2 = "";
@@ -31,6 +32,11 @@ namespace appWin_liguev2
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Lors de l'ouverture, les nom des équipes sont affichées et initialise les objets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormScoreMatch_Load(object sender, EventArgs e)
         {
             labelEquipe1.Text = nomEquipe1;
@@ -172,6 +178,11 @@ namespace appWin_liguev2
 
         }
 
+        /// <summary>
+        /// Quand le numéro du joueur est changé, son nom est automatiquement ajusté
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxNum1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string numJoueur = comboBoxNum1.SelectedItem.ToString();
@@ -199,6 +210,11 @@ namespace appWin_liguev2
 
         }
 
+        /// <summary>
+        /// Quand le numéro du joueur est changé, son nom est automatiquement ajusté
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxNum2_SelectedIndexChanged(object sender, EventArgs e)
         {
             string numJoueur = comboBoxNum2.SelectedItem.ToString();
@@ -225,6 +241,11 @@ namespace appWin_liguev2
             }
         }
 
+        /// <summary>
+        /// Ajoute un but à l'équipe locale
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLocal_Click(object sender, EventArgs e)
         {
             if (comboBoxNum1.Text == "") 
@@ -236,6 +257,7 @@ namespace appWin_liguev2
             nbButsLocal += 1;
             labelScore1.Text = nbButsLocal.ToString();
 
+            //ajuste les stats des joueurs
             foreach (Attaquant a1 in ls_att1) 
             {
                 if (a1.NumChandail == comboBoxNum1.Text) 
@@ -246,6 +268,11 @@ namespace appWin_liguev2
             }
         }
 
+        /// <summary>
+        /// Ajoute un but à l'équipe visiteure
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonVisiteur_Click(object sender, EventArgs e)
         {
             if (comboBoxNum2.Text == "")
@@ -256,6 +283,8 @@ namespace appWin_liguev2
             int nbButsVisiteur = Int32.Parse(labelScore2.Text);
             nbButsVisiteur += 1;
             labelScore2.Text = nbButsVisiteur.ToString();
+
+            //ajuste les stats des joueurs
             foreach (Attaquant a2 in ls_att2)
             {
                 
@@ -267,12 +296,22 @@ namespace appWin_liguev2
             }
         }
 
+        /// <summary>
+        /// Termine la partie, calcul les stats et enregistre les données dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonFin_Click(object sender, EventArgs e)
         {
+            //récupère le score
             int nbButLocal = Int32.Parse(labelScore1.Text);
             int nbButVisiteur = Int32.Parse(labelScore2.Text);
 
+            //Calcul les nouvelles stats des équipes
             GestionMatch.FinMatch(equipe1, nbButLocal, equipe2, nbButVisiteur);
+
+            //Supprime les anciennes valeurs de la base de données
+
 
             string query;
 
@@ -363,8 +402,9 @@ namespace appWin_liguev2
                 MessageBox.Show(ex.Message);
             }
 
-            ///////////////
+            //Ajoute les nouvelles valeurs
 
+            //équipe local
             DataRow UneEquipe = ado.DtEquipe.NewRow();
             UneEquipe[0] = equipe1.EquipeNom;
             UneEquipe[1] = equipe1.NbVictoire;
@@ -376,6 +416,7 @@ namespace appWin_liguev2
             UneEquipe[7] = equipe1.NbButDiff;
             ado.DtEquipe.Rows.Add(UneEquipe);
 
+            //équipe visiteure
             DataRow UneEquipe2 = ado.DtEquipe.NewRow();
             UneEquipe2[0] = equipe2.EquipeNom;
             UneEquipe2[1] = equipe2.NbVictoire;
@@ -408,11 +449,14 @@ namespace appWin_liguev2
             ado.Adapter.Fill(ado.DsLigue);
             ado.DtEquipe = ado.DsLigue.Tables[0];
 
+            //calcule les stats des gardiens
             gar1.AjouterMatch();
             gar1.CalculerStats();
             gar2.AjouterMatch();
             gar2.CalculerStats();
 
+
+            //Gardien de l'équipe locale
             DataRow UnGardien = ado.DtEquipe.NewRow();
             UnGardien[0] = gar1.JoueurID;
             UnGardien[1] = gar1.EquipeNom;
@@ -424,6 +468,7 @@ namespace appWin_liguev2
             UnGardien[7] = gar1.MoyenneButsAllouees;
             ado.DtEquipe.Rows.Add(UnGardien);
 
+            //Gardien de l'équipe visiteure
             DataRow UnGardien2 = ado.DtEquipe.NewRow();
             UnGardien2[0] = gar2.JoueurID;
             UnGardien2[1] = gar2.EquipeNom;
@@ -455,6 +500,7 @@ namespace appWin_liguev2
             ado.Adapter.Fill(ado.DsLigue);
             ado.DtEquipe = ado.DsLigue.Tables[0];
 
+            //Attaquants de l'équipe locale
             foreach (Attaquant a1 in ls_att1) 
             {
                 a1.AjouterMatch();
@@ -472,6 +518,7 @@ namespace appWin_liguev2
                 ado.DtEquipe.Rows.Add(UnAttaquant);
             }
 
+            //Attaquants de l'équipe visiteurs
             foreach (Attaquant a2 in ls_att2)
             {
                 a2.AjouterMatch();

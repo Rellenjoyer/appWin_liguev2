@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    //Classe pouur facilité la gestion de fin de match
     public static class GestionMatch
     {
+        /// <summary>
+        /// Calcul les nouvelles stats des équipes à partir du résultat du match
+        /// </summary>
+        /// <param name="p_equipe1">équipe locale</param>
+        /// <param name="p_nbBut1">Nombre de buts de l'équipe locale</param>
+        /// <param name="p_equipe2">Équipe visiteure</param>
+        /// <param name="p_nbBut2">Nombre de but de l'équipe visiteure</param>
+        /// <returns></returns>
         public static int FinMatch(Equipe p_equipe1, int p_nbBut1, Equipe p_equipe2, int p_nbBut2) 
         {
             p_equipe1.AjouterButsPour(p_nbBut1);

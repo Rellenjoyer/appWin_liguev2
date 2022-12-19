@@ -19,6 +19,11 @@ namespace appWin_liguev2
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Remplie les comboBox avec les nom des équipes au chargement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormAjoutMatch_Load(object sender, EventArgs e)
         {
             ado = new Adonet();
@@ -38,6 +43,11 @@ namespace appWin_liguev2
             }
         }
 
+        /// <summary>
+        /// Confirme la création de match et ouvre un nouveau form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             string equipe1 = comboBoxEquipe1.Text;
@@ -45,6 +55,7 @@ namespace appWin_liguev2
 
             if ( equipe1!="" && equipe2!="" && equipe1 != equipe2 ) 
             {
+                // transfert le nom des équipes au prochain form
                 FormScoreMatch formScore = new FormScoreMatch();
                 formScore.MdiParent = this.MdiParent;
                 formScore.nomEquipe1 = comboBoxEquipe1.Text;
@@ -54,6 +65,7 @@ namespace appWin_liguev2
 
                 this.Close();
             }
+            //si les équipes ne sont pas valides
             else 
             {
                 MessageBox.Show("Veuillez choisir 2 équipes différentres");

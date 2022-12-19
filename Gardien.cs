@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    // classe pour les joueurs de types Gardiens
     public class Gardien : Joueur, IStatistique
     {
-        //attribut
+        //attributs
         private int nbButsAllouees;
         private int nbMatch;
         private float moyenneButsAllouees;
 
-        //propriété
+        //propriétés
         public int NbButsAllouees
         {
             get { return this.nbButsAllouees; }
@@ -43,19 +44,31 @@ namespace appWin_liguev2
             this.moyenneButsAllouees = p_moyenneButsAllouees;
         }
 
-        public int AjouterMatch()
+        /// <summary>
+        /// Ajoute un match
+        /// </summary>
+        public void AjouterMatch()
         {
             this.nbMatch++;
-            return this.nbMatch;
+
         }
 
+        /// <summary>
+        /// Ajoute un but
+        /// </summary>
+        /// <returns></returns>
         public int AjouterBut()
         {
             this.nbButsAllouees++;
             return this.nbButsAllouees;
+            
         }
 
-        public float CalculerStats()
+        /// <summary>
+        /// Calcul la moyenne de buts allouées
+        /// </summary>
+        /// <returns></returns>
+        public double CalculerStats()
         {
             nbMatch = this.nbMatch;
             if (this.nbMatch == 0) 

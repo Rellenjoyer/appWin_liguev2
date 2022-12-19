@@ -29,15 +29,14 @@ namespace appWin_liguev2
 
         private void FormAjouter_Load(object sender, EventArgs e)
         {
-            ado = new Adonet();
-            string query = "Select * from Equipes;";
-            ado.Command.CommandText = query;
-            ado.Command.Connection = ado.Connection;
-            ado.Adapter.SelectCommand = ado.Command;
-            ado.Adapter.Fill(ado.DsLigue);
-            ado.DtEquipe = ado.DsLigue.Tables[0];
+            
         }
 
+        /// <summary>
+        /// Permet d'ajouter un joueur à l'équipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAjouterJoueur_Click(object sender, EventArgs e)
         {
             //variable pour le regex
@@ -61,10 +60,11 @@ namespace appWin_liguev2
             Match matchPrenom = Regex.Match(inputPrenom, patternNom);
             if (!(matchPrenom.Success)) { MessageBox.Show("Veuillez entrer un prénom avec une majuscule et moins de 21 lettres"); }
 
+            //valide qu'une position a été choisie
             if (inputPosition != "Attaquant" && inputPosition != "Gardien") { MessageBox.Show("Veuillez entrer une position valide"); }
 
 
-            //Si tous les inputs sont corrects
+            
             else if (matchNum.Success && matchNom.Success && matchPrenom.Success)
             {
                 //i est le compteur d'attaquant
@@ -73,7 +73,8 @@ namespace appWin_liguev2
                 int j = 0;
                 //i est le compteur de joueur
                 int k = 0;
-                //vérifie que le numéro d'étudiant n'existe pas
+
+                //Vérifie si l'équipe à déjà tous ses joueurs avant d'en ajouter un
                 foreach (ListViewItem item in listViewJoueur.Items)
                 {
 
@@ -97,6 +98,7 @@ namespace appWin_liguev2
                         }
                     }
 
+                    //vérifie que le numéro d'étudiant n'existe pas
                     if (item.SubItems[0].Text == inputNum) 
                     {
                         MessageBox.Show("Ce numéro de joueur dest déjà utilisé");
@@ -104,6 +106,7 @@ namespace appWin_liguev2
                     }
                 }
 
+                //ajoute le joueur à la liste
                 ListViewItem lv1 = new ListViewItem(inputNum);
                 lv1.SubItems.Add(inputPosition);
                 lv1.SubItems.Add(inputPrenom);
@@ -120,6 +123,11 @@ namespace appWin_liguev2
             }
         }
 
+        /// <summary>
+        /// Supprime le joueur avec le numéro dans le champ nuéro de chandail
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             //variable pour le regex
@@ -132,6 +140,7 @@ namespace appWin_liguev2
             Match matchNum = Regex.Match(inputNum, patternNum);
             if (!(matchNum.Success)) { MessageBox.Show("Veuillez entrer un numéro à 2 chiffres"); }
 
+            //si le joueur existe, l'enlève de la liste
             else 
             {
                 foreach (ListViewItem item in listViewJoueur.Items)
@@ -149,6 +158,11 @@ namespace appWin_liguev2
 
         }
 
+        /// <summary>
+        /// Complète la création de l'équipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonComplet_Click(object sender, EventArgs e)
         {
             //variable pour le regex
@@ -169,6 +183,8 @@ namespace appWin_liguev2
                 int j = 0;
                 //i est le compteur de joueur
                 int k = 0;
+
+                //vérifie que l'équipe est complète
                 foreach (ListViewItem item in listViewJoueur.Items)
                 {
 
@@ -214,6 +230,7 @@ namespace appWin_liguev2
                     }
                 }
 
+                //Si toutes les conditions sont respectées, crée l'équipe
                 if (j == 1 && i == 5)
                 {
                     MessageBox.Show("L'équipe à bien été créé");

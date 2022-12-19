@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
+    //Classe des joueurs de type Attaquants
     public class Attaquant : Joueur, IStatistique
     {
-        //attribut
+        //attributs
         private int nbBut;
         private int nbMatch;
-        private float moyenneBut;
+        private double moyenneBut;
 
-        //propriété
+        //propriétés
         public int NbBut
         {
             get { return this.nbBut; }
@@ -26,7 +27,7 @@ namespace appWin_liguev2
             set { this.nbMatch = value; }
         }
 
-        public float MoyenneBut
+        public double MoyenneBut
         {
             get { return this.moyenneBut; }
             set { this.moyenneBut = value; }
@@ -34,7 +35,7 @@ namespace appWin_liguev2
 
 
         //constructeur
-        public Attaquant(string p_joueurID = "", string p_equipeID = "", string p_nom = "", string p_prenom = "", string p_numChandail = "", int p_nbBut = 0, int p_nbMatch = 0, float p_moyenneBut = 0)
+        public Attaquant(string p_joueurID = "", string p_equipeID = "", string p_nom = "", string p_prenom = "", string p_numChandail = "", int p_nbBut = 0, int p_nbMatch = 0, double p_moyenneBut = 0)
             : base(p_joueurID, p_equipeID, p_nom, p_prenom, p_numChandail)
         {
 
@@ -43,19 +44,31 @@ namespace appWin_liguev2
             this.moyenneBut = p_moyenneBut;
         }
 
-        public int AjouterMatch()
+        /// <summary>
+        /// Ajoute un but
+        /// </summary>
+        public void AjouterMatch()
         {
             this.nbMatch++;
-            return this.nbMatch;
+            
         }
 
+        /// <summary>
+        /// Ajoute un match
+        /// </summary>
+        /// <returns></returns>
         public int AjouterBut()
         {
             this.nbBut+= 1;
             return this.nbBut;
+            
         }
 
-        public float CalculerStats()
+        /// <summary>
+        /// Calcul la moyenne de but
+        /// </summary>
+        /// <returns></returns>
+        public double CalculerStats()
         {
             nbMatch = this.nbMatch;
             if (this.nbMatch == 0)
@@ -65,6 +78,7 @@ namespace appWin_liguev2
 
             this.moyenneBut = this.nbBut / nbMatch;
             return this.moyenneBut;
+            
         }
     }
 }
