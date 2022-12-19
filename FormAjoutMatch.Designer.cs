@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjoutMatch));
             this.comboBoxEquipe1 = new System.Windows.Forms.ComboBox();
             this.comboBoxEquipe2 = new System.Windows.Forms.ComboBox();
             this.labelEquipe1 = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@
             this.Controls.Add(this.labelEquipe1);
             this.Controls.Add(this.comboBoxEquipe2);
             this.Controls.Add(this.comboBoxEquipe1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAjoutMatch";
             this.Text = "Créer un match";
             this.Load += new System.EventHandler(this.FormAjoutMatch_Load);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjouter));
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.labelPosition = new System.Windows.Forms.Label();
@@ -218,6 +219,7 @@
             this.Controls.Add(this.buttonAjouterJoueur);
             this.Controls.Add(this.labelNomEquipe);
             this.Controls.Add(this.textBoxNomEquipe);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAjouter";
             this.Text = "Ajouter une équipe";
             this.Load += new System.EventHandler(this.FormAjouter_Load);

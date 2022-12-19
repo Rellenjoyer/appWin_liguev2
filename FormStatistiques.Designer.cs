@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistiques));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxFiltre = new System.Windows.Forms.ComboBox();
             this.buttonRecherche = new System.Windows.Forms.Button();
@@ -138,6 +139,7 @@
             this.Controls.Add(this.buttonRecherche);
             this.Controls.Add(this.comboBoxFiltre);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormStatistiques";
             this.Text = "Statistiques";
             this.Load += new System.EventHandler(this.FormStatistiques_Load);

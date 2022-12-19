@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScoreMatch));
             this.labelEquipe1 = new System.Windows.Forms.Label();
             this.labelEquipe2 = new System.Windows.Forms.Label();
             this.labelScore1 = new System.Windows.Forms.Label();
@@ -234,6 +235,7 @@
             this.Controls.Add(this.labelScore1);
             this.Controls.Add(this.labelEquipe2);
             this.Controls.Add(this.labelEquipe1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormScoreMatch";
             this.Text = "Match en cours";
             this.Load += new System.EventHandler(this.FormScoreMatch_Load);
