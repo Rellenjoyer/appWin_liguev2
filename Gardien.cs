@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
-    public class Gardien : Joueur
+    public class Gardien : Joueur, IStatistique
     {
         //attribut
         private int nbButsAllouees;
@@ -41,6 +41,30 @@ namespace appWin_liguev2
             this.nbButsAllouees = p_nbButsAllouees;
             this.nbMatch = p_nbMatch;
             this.moyenneButsAllouees = p_moyenneButsAllouees;
+        }
+
+        public int AjouterMatch()
+        {
+            this.nbMatch++;
+            return this.nbMatch;
+        }
+
+        public int AjouterBut()
+        {
+            this.nbButsAllouees++;
+            return this.nbButsAllouees;
+        }
+
+        public float CalculerStats()
+        {
+            nbMatch = this.nbMatch;
+            if (this.nbMatch == 0) 
+            {
+                nbMatch = 1;
+            }
+
+            this.moyenneButsAllouees = this.nbButsAllouees / nbMatch;
+            return this.moyenneButsAllouees;
         }
     }
 }

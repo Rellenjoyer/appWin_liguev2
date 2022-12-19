@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appWin_liguev2
 {
-    public class Attaquant : Joueur
+    public class Attaquant : Joueur, IStatistique
     {
         //attribut
         private int nbBut;
@@ -41,6 +41,30 @@ namespace appWin_liguev2
             this.nbBut = p_nbBut;
             this.nbMatch = p_nbMatch;
             this.moyenneBut = p_moyenneBut;
+        }
+
+        public int AjouterMatch()
+        {
+            this.nbMatch++;
+            return this.nbMatch;
+        }
+
+        public int AjouterBut()
+        {
+            this.nbBut+= 1;
+            return this.nbBut;
+        }
+
+        public float CalculerStats()
+        {
+            nbMatch = this.nbMatch;
+            if (this.nbMatch == 0)
+            {
+                nbMatch = 1;
+            }
+
+            this.moyenneBut = this.nbBut / nbMatch;
+            return this.moyenneBut;
         }
     }
 }

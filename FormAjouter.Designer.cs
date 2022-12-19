@@ -46,8 +46,6 @@
             this.labelNomEquipe = new System.Windows.Forms.Label();
             this.textBoxNomEquipe = new System.Windows.Forms.TextBox();
             this.buttonComplet = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSupprimer
@@ -62,6 +60,7 @@
             // 
             // comboBoxPosition
             // 
+            this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPosition.FormattingEnabled = true;
             this.comboBoxPosition.Items.AddRange(new object[] {
             "Attaquant",
@@ -200,20 +199,11 @@
             this.buttonComplet.UseVisualStyleBackColor = true;
             this.buttonComplet.Click += new System.EventHandler(this.buttonComplet_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(277, 382);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(465, 150);
-            this.dataGridView1.TabIndex = 28;
-            // 
             // FormAjouter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 595);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonComplet);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.comboBoxPosition);
@@ -231,7 +221,6 @@
             this.Name = "FormAjouter";
             this.Text = "Ajouter une équipe";
             this.Load += new System.EventHandler(this.FormAjouter_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +246,5 @@
         private System.Windows.Forms.TextBox textBoxNomEquipe;
         private System.Windows.Forms.Button buttonComplet;
         private System.Windows.Forms.ColumnHeader nom;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -33,6 +33,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +56,9 @@
             // pagesToolStripMenuItem
             // 
             this.pagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterToolStripMenuItem});
+            this.ajouterToolStripMenuItem,
+            this.statistiquesToolStripMenuItem,
+            this.matchToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
             this.pagesToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.pagesToolStripMenuItem.Text = "Pages";
@@ -65,6 +69,20 @@
             this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
+            // 
+            // statistiquesToolStripMenuItem
+            // 
+            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.statistiquesToolStripMenuItem.Text = "Statistiques";
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
+            // 
+            // matchToolStripMenuItem
+            // 
+            this.matchToolStripMenuItem.Name = "matchToolStripMenuItem";
+            this.matchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matchToolStripMenuItem.Text = "Match";
+            this.matchToolStripMenuItem.Click += new System.EventHandler(this.matchToolStripMenuItem_Click);
             // 
             // FormParent
             // 
@@ -90,6 +108,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matchToolStripMenuItem;
     }
 }
 

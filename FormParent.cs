@@ -28,5 +28,19 @@ namespace appWin_liguev2
             formAdd.MdiParent = this;
             formAdd.Show();
         }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormStatistiques formstats = new FormStatistiques();
+            formstats.MdiParent = this;
+            formstats.Show();
+        }
+
+        private void matchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAjoutMatch formMatch = new FormAjoutMatch();
+            formMatch.MdiParent = this;
+            formMatch.Show();
+        }
     }
 }

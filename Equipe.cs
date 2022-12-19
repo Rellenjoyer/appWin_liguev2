@@ -17,7 +17,7 @@ namespace appWin_liguev2
         private int nbButPour;
         private int nbButContre;
         private int nbButDiff;
-
+        static int nbJoueurs = 6;
         //propriété
 
 
@@ -67,7 +67,6 @@ namespace appWin_liguev2
         //constructeur
         public Equipe(string p_equipeNom = "", int p_nbVictoire = 0, int p_nbDefaite = 0, int p_nbNulle = 0, int p_nbPoint = 0, int p_nbButPour = 0, int p_nbButContre = 0, int p_nbButDiff = 0)
         {
-
             this.equipeNom = p_equipeNom;
             this.nbVictoire = p_nbVictoire;
             this.nbDefaite = p_nbDefaite;
@@ -78,5 +77,47 @@ namespace appWin_liguev2
             this.NbButDiff = p_nbButDiff;
 
         }
+
+        public int AjouterVictoire()
+        {
+            this.NbVictoire+= 1;
+            return this.NbVictoire;
+        }
+
+        public int AjouterDefaite()
+        {
+            this.NbDefaite += 1;
+            return this.NbDefaite;
+        }
+
+        public int AjouterNulle()
+        {
+            this.NbNulle += 1;
+            return this.NbNulle;
+        }
+        public int CalculerPoint()
+        {
+            this.nbPoint = this.NbVictoire * 2 + this.nbNulle;
+            return this.NbPoint;
+        }
+
+        public int AjouterButsPour(int p_nbBut) 
+        {
+            this.nbButPour+= p_nbBut;
+            return this.NbButPour;
+        }
+
+        public int AjouterButsContre(int p_nbButContre)
+        {
+            this.nbButContre += p_nbButContre;
+            return this.nbButContre;
+        }
+
+        public int CalculerButDiff()
+        {
+            this.NbButDiff = this.nbButPour - this.nbButContre;
+            return this.NbButDiff;
+        }
+
     }
 }

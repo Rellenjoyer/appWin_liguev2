@@ -36,7 +36,6 @@ namespace appWin_liguev2
             ado.Adapter.SelectCommand = ado.Command;
             ado.Adapter.Fill(ado.DsLigue);
             ado.DtEquipe = ado.DsLigue.Tables[0];
-            this.dataGridView1.DataSource = ado.DtEquipe;
         }
 
         private void buttonAjouterJoueur_Click(object sender, EventArgs e)
@@ -196,9 +195,29 @@ namespace appWin_liguev2
                     return;
                 }
 
+                //vérifie que le nom de l'équipe n'existe pas encore
+                ado = new Adonet();
+                string query = $"Select * from Equipes;";
+                ado.Command.CommandText = query;
+                ado.Command.Connection = ado.Connection;
+                ado.Adapter.SelectCommand = ado.Command;
+                ado.Adapter.Fill(ado.DsLigue);
+                ado.DtEquipe = ado.DsLigue.Tables[0];
+                
+                foreach(DataRow row in ado.DtEquipe.Rows) 
+                {
+                    string nomEquipe = row[0].ToString();
+                    if (nomEquipe == inputNomEquipe) 
+                    {
+                        MessageBox.Show("Ce nom d'équipe existe déjà");
+                        return;
+                    }
+                }
+
                 if (j == 1 && i == 5)
                 {
                     MessageBox.Show("L'équipe à bien été créé");
+                    
 
                     //ado pour la table équipe
                     Adonet ado = new Adonet();
@@ -325,6 +344,8 @@ namespace appWin_liguev2
                     {
                         MessageBox.Show(ex.Message);
                     }
+
+                    listViewJoueur.Items.Clear();
                 }
             }
         }

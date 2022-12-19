@@ -48,6 +48,24 @@
   <ItemGroup>
     <Compile Include="Attaquant.cs" />
     <Compile Include="Adonet.cs" />
+    <Compile Include="FormScoreMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScoreMatch.Designer.cs">
+      <DependentUpon>FormScoreMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAjoutMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjoutMatch.Designer.cs">
+      <DependentUpon>FormAjoutMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatistiques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatistiques.Designer.cs">
+      <DependentUpon>FormStatistiques.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAjouter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +75,7 @@
     <Compile Include="GestionMatch.cs" />
     <Compile Include="Gardien.cs" />
     <Compile Include="Equipe.cs" />
+    <Compile Include="IStatistique.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="FormParent.cs">
       <SubType>Form</SubType>
@@ -69,8 +88,17 @@
     <EmbeddedResource Include="FormAjouter.resx">
       <DependentUpon>FormAjouter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutMatch.resx">
+      <DependentUpon>FormAjoutMatch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormParent.resx">
       <DependentUpon>FormParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScoreMatch.resx">
+      <DependentUpon>FormScoreMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistiques.resx">
+      <DependentUpon>FormStatistiques.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
