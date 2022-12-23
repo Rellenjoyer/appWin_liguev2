@@ -18,6 +18,7 @@ namespace appWin_liguev2
         private int nbButPour;
         private int nbButContre;
         private int nbButDiff;
+        private List<Joueur> ls_joueur;
         static int nbJoueurs = 6;
 
 
@@ -63,9 +64,15 @@ namespace appWin_liguev2
             set { this.nbButDiff = value; }
         }
 
+        public List<Joueur> Ls_joueur
+        {
+            get { return this.ls_joueur; }
+            set { this.ls_joueur = value; }
+        }
+
 
         //constructeur
-        public Equipe(string p_equipeNom = "", int p_nbVictoire = 0, int p_nbDefaite = 0, int p_nbNulle = 0, int p_nbPoint = 0, int p_nbButPour = 0, int p_nbButContre = 0, int p_nbButDiff = 0)
+        public Equipe(string p_equipeNom = "", int p_nbVictoire = 0, int p_nbDefaite = 0, int p_nbNulle = 0, int p_nbPoint = 0, int p_nbButPour = 0, int p_nbButContre = 0, int p_nbButDiff = 0, List<Joueur> p_lsJoueur = null)
         {
             this.equipeNom = p_equipeNom;
             this.nbVictoire = p_nbVictoire;
@@ -75,6 +82,7 @@ namespace appWin_liguev2
             this.nbButPour = p_nbButPour;
             this.NbButContre = p_nbButContre;
             this.NbButDiff = p_nbButDiff;
+            this.ls_joueur = p_lsJoueur;
 
         }
 
