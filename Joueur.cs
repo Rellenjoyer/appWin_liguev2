@@ -58,5 +58,8 @@ namespace appWin_liguev2
             this.prenom = p_prenom;
             this.numChandail = p_numChandail;
         }
+
+        public abstract void AjouterMatch();
+        
     }
 }

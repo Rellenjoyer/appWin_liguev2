@@ -47,7 +47,7 @@ namespace appWin_liguev2
         /// <summary>
         /// Ajoute un match
         /// </summary>
-        public void AjouterMatch()
+        public override void AjouterMatch()
         {
             this.nbMatch++;
 
