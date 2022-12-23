@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Attaquant.cs" />
     <Compile Include="Adonet.cs" />
+    <Compile Include="exempleDelegate.cs" />
     <Compile Include="FormScoreMatch.cs">
       <SubType>Form</SubType>
     </Compile>
